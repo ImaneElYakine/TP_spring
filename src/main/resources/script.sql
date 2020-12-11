@@ -1,0 +1,6 @@
+CREATE TABLE Repository (
+name VARCHAR(30) PRIMARY KEY,
+owner VARCHAR(30) NOT NULL,
+issues INTEGER NOT NULL,
+pullRequest INTEGER NOT NULL
+);
