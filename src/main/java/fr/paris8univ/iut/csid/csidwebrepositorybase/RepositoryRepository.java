@@ -14,9 +14,11 @@ import java.util.stream.Collectors;
 public class RepositoryRepository {
 
     private final RepositoryDao repositoryDao;
+    private final GithubRepositoryDao githubRepositoryDao;
 
     @Autowired
-    public RepositoryRepository(RepositoryDao repositoryDao){
+    public RepositoryRepository(RepositoryDao repositoryDao, GithubRepositoryDao  githubRepositoryDao){
+        this.githubRepositoryDao = githubRepositoryDao;
         this.repositoryDao = repositoryDao;
     }
 
