@@ -28,14 +28,20 @@ public class RepositoryRepository {
     }
 
     public Optional<fr.paris8univ.iut.csid.csidwebrepositorybase.Repository> findOneRepository(String name){
-        return null;
+        RepositoryEntity repoEntity = repositoryDao.findById(name).get();
+        fr.paris8univ.iut.csid.csidwebrepositorybase.Repository repository =
+                new fr.paris8univ.iut.csid.csidwebrepositorybase.Repository(
+                        repoEntity.getName(), repoEntity.getOwner(), repoEntity.getIssues(), repoEntity.getPullRequest());
+        return Optional.of(repository);
     }
 
     public void createRepository(fr.paris8univ.iut.csid.csidwebrepositorybase.Repository repository) {
+        repositoryDao.save(
+                new RepositoryEntity(repository.getName(), repository.getOwner(), repository.getIssues(), repository.getPullRequest()));
     }
 
     public void deleteRepository(String name){
-
+        repositoryDao.deleteById(name);
     }
 
 }

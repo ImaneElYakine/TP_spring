@@ -18,7 +18,7 @@ public class RepositoryEntity {
     @Column(name = "issues")
     private Integer issues;
 
-    @Column(name = "pullRequest")
+    @Column(name = "pullrequest")
     private Integer pullRequest;
 
     public RepositoryEntity() {}

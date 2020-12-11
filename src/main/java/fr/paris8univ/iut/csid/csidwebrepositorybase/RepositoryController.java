@@ -34,8 +34,8 @@ public class RepositoryController {
     // Renvoi un répository
     @GetMapping("/{name}")
     public ResponseEntity<Repository> findOneRepository(@PathVariable String name){
-        return this.repositoryService.findOneRepository(name)
-                .map(x->ResponseEntity.ok(x))
+        return repositoryService.findOneRepository(name)
+                .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
