@@ -30,7 +30,7 @@ public class RepositoryService {
         repositoryRepository.deleteRepository(name);
     }
 
-    public void postIssue(String title, String body) {
-        this.repositoryRepository.postIssue(title, body);
+    public void postIssue(Issue issue, String repository) {
+        this.repositoryRepository.postIssue(issue, repository);
     }
 }

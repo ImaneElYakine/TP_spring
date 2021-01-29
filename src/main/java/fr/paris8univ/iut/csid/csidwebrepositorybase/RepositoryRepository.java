@@ -47,7 +47,7 @@ public class RepositoryRepository {
     }
 
 
-    public void postIssue(String title, String body){
-        githubRepositoryDao.postIssue(title, body);
+    public void postIssue(Issue issue, String repository){
+        githubRepositoryDao.postIssue(issue, "ImaneElYakine", repository);
     }
 }

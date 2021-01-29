@@ -53,9 +53,9 @@ public class RepositoryController {
         return ResponseEntity.noContent().build();
     }
 
-    @PostMapping("/newissue/{title}/{body}")
-    public void postIssue(@PathVariable String title, @PathVariable String body){
-        repositoryService.postIssue(title, body);
+    @PostMapping("/{repository}/issues")
+    public void postIssue(@PathVariable String repository, @RequestBody Issue issue){
+        repositoryService.postIssue(issue, repository);
     }
 
 }

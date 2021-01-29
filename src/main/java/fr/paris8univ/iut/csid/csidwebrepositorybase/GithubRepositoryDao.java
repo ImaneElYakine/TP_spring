@@ -29,9 +29,8 @@ public class GithubRepositoryDao {
     }
 
     // Créer une issue et le post sur GitHub via l'API
-    public void postIssue(String title, String body) {
-        Issue issue = new Issue(title, body);
-        String repoURL = "https://api.github.com/repos/ImaneElYakine/testIssue";
+    public void postIssue(Issue issue, String owner, String repository) {
+        String repoURL = "https://api.github.com/repos/" + owner + "/" + repository + "/issues";
         String token = "7abf67037e304aca95bbc9f9286833cd6760dca9";
         HttpHeaders requete = new HttpHeaders();
         requete.add("Authorization", "Bearer " + token);
