@@ -46,4 +46,8 @@ public class RepositoryRepository {
         repositoryDao.deleteById(name);
     }
 
+
+    public void postIssue(String title, String body){
+        githubRepositoryDao.postIssue(title, body);
+    }
 }

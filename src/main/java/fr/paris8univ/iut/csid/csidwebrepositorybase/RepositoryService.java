@@ -29,4 +29,8 @@ public class RepositoryService {
     public void deleteRepository(String name){
         repositoryRepository.deleteRepository(name);
     }
+
+    public void postIssue(String title, String body) {
+        this.repositoryRepository.postIssue(title, body);
+    }
 }

@@ -14,13 +14,11 @@ import java.util.List;
 public class RepositoryController {
     private final List<Repository> repositories;
     private final RepositoryService repositoryService;
-    private Repository rep = new Repository("imane", "ely", 2, 2);
 
     // Constructeur
     @Autowired
     public RepositoryController(RepositoryService repositoryService){
         repositories = new ArrayList<>();
-        repositories.add(rep);
         this.repositoryService = repositoryService;
     }
 
@@ -39,6 +37,8 @@ public class RepositoryController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+
+
     // Créer un repository
     @PostMapping
     public ResponseEntity<Repository> createRepository(@RequestBody Repository repository) throws URISyntaxException {
@@ -51,6 +51,11 @@ public class RepositoryController {
     public ResponseEntity deleteRepository(@PathVariable String name){
         repositoryService.deleteRepository(name);
         return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping("/newissue/{title}/{body}")
+    public void postIssue(@PathVariable String title, @PathVariable String body){
+        repositoryService.postIssue(title, body);
     }
 
 }
