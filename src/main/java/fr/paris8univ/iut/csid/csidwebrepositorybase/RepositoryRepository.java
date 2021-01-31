@@ -48,6 +48,11 @@ public class RepositoryRepository {
 
 
     public void postIssue(Issue issue, String repository){
-        githubRepositoryDao.postIssue(issue, "ImaneElYakine", repository);
+        RepositoryEntity owner = new RepositoryEntity();
+        if(!(repositoryDao.findById(repository).isEmpty())){
+            owner = repositoryDao.findById(repository).get();
+        }
+        String ownerName = owner.getName();
+        githubRepositoryDao.postIssue(issue, ownerName, repository);
     }
 }
